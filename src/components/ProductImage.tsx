@@ -5,6 +5,7 @@ interface ProductImageProps {
   src: string;
   alt: string;
   className?: string;
+  style: React.CSSProperties;
 }
 
 const FALLBACK_IMAGE = "https://via.placeholder.com";
@@ -13,6 +14,7 @@ export const ProductImage: React.FC<ProductImageProps> = ({
   src,
   alt,
   className = "img-fluid",
+  style,
 }) => {
   const [imgSrc, setImgSrc] = useState<string>(src);
 
@@ -21,6 +23,7 @@ export const ProductImage: React.FC<ProductImageProps> = ({
       src={imgSrc}
       alt={alt}
       className={className}
+      style={style}
       onError={() => setImgSrc(FALLBACK_IMAGE)}
     />
   );

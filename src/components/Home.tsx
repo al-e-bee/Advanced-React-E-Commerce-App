@@ -1,7 +1,8 @@
 // Home.tsx
 import { useState } from "react";
 import { useProducts, useCategories } from "../hooks/useProducts";
-import { Rating } from "@smastrom/react-rating";
+import { ProductCard } from "./ProductCard";
+import { Row, Container, Form } from "react-bootstrap";
 
 export const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -17,9 +18,10 @@ export const Home = () => {
   if (isError) return <div>Error loading products...</div>;
 
   return (
-    <div>
+    <Container className="py-4">
       {/* Category Dropdown */}
-      <select
+      <Form.Select
+        className="mb-4 w-auto"
         value={selectedCategory}
         onChange={(e) => setSelectedCategory(e.target.value)}
         disabled={isCategoriesLoading}
@@ -30,26 +32,18 @@ export const Home = () => {
             {cat}
           </option>
         ))}
-      </select>
+      </Form.Select>
 
       {/* Product List */}
-      <div className="product-grid">
+      <Row xs={1} md={2} lg={3} className="g-4">
         {products?.map((product) => (
-          <div key={product.id}>
-            <h3>{product.title}</h3>
-            <img src={product.image} />
-            <p>{product.description}</p>
-            <p>
-              <strong>${product.price}</strong>
-            </p>
-            <Rating
-              style={{ maxWidth: 100 }}
-              value={product.rating.rate}
-              readOnly
-            />
-          </div>
+          <ProductCard
+            key={product.id}
+            product={product}
+            onAddToCart={(prod) => console.log("Added to cart:", prod)}
+          />
         ))}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "bootstrap/dist/css/bootstrap-grid.min.css";
 import "./index.css";
 import App from "./App.tsx";
 import "@smastrom/react-rating/style.css"; // Star rating
