@@ -1,8 +1,11 @@
+import { Home } from "./components/Home";
+import { Container } from "react-bootstrap";
+
 function App() {
   return (
-    <>
-      <h1>E-Commerce Web App</h1>
-    </>
+    <Container>
+      <Home />
+    </Container>
   );
 }
 

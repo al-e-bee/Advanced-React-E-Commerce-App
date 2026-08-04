@@ -1,7 +1,7 @@
 // ProductAPI.ts
 import type { Product } from "../types/Product";
 
-const BASE_URL = "https://fakestoreapi.co/products";
+const BASE_URL = "https://fakestoreapi.com/products";
 
 // 1. Fetch all products
 export const fetchAllProducts = async (): Promise<Product[]> => {

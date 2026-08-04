@@ -1,6 +1,7 @@
 // Home.tsx
 import { useState } from "react";
 import { useProducts, useCategories } from "../hooks/useProducts";
+import { Rating } from "@smastrom/react-rating";
 
 export const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -36,8 +37,16 @@ export const Home = () => {
         {products?.map((product) => (
           <div key={product.id}>
             <h3>{product.title}</h3>
-            <p>{product.price}</p>
-            <p>Rating: {product.rating.rate}</p>
+            <img src={product.image} />
+            <p>{product.description}</p>
+            <p>
+              <strong>${product.price}</strong>
+            </p>
+            <Rating
+              style={{ maxWidth: 100 }}
+              value={product.rating.rate}
+              readOnly
+            />
           </div>
         ))}
       </div>
