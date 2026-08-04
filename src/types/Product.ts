@@ -1,4 +1,4 @@
-// product.ts
+// Product.ts
 
 export interface Product {
   id: number;

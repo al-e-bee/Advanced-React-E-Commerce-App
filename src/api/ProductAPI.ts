@@ -1,5 +1,5 @@
 // ProductAPI.ts
-import type { Product } from "../types/product";
+import type { Product } from "../types/Product";
 
 const BASE_URL = "https://fakestoreapi.co/products";
 
