@@ -8,7 +8,7 @@ interface ProductImageProps {
   style: React.CSSProperties;
 }
 
-const FALLBACK_IMAGE = "https://via.placeholder.com";
+const FALLBACK_IMAGE = "https://placehold.co/200x200?text=No+Image";
 
 export const ProductImage: React.FC<ProductImageProps> = ({
   src,

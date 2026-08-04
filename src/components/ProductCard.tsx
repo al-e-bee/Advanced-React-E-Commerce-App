@@ -59,9 +59,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </Card.Text>
 
           <div className="mt-auto d-flex justify-content-between align-items-center pt-2">
-            <span className="fs-5 fw-bold text-primary">
-              ${product.price.toFixed(2)}
-            </span>
+            <span className="fs-5 fw-bold">${product.price.toFixed(2)}</span>
             <Button
               variant="primary"
               size="sm"
