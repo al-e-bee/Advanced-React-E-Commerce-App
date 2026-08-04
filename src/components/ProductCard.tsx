@@ -3,19 +3,25 @@ import { Col, Card, Button, Badge } from "react-bootstrap";
 import type { Product } from "../types/Product";
 import { ProductImage } from "./ProductImage";
 import { Rating } from "@smastrom/react-rating";
+import { useAppDispatch } from "../store";
+import { addToCart } from "../store/cartSlice";
+import { formatCurrency } from "../utitlities/formatCurrency";
 
 interface ProductCardProps {
   product: Product;
-  onAddToCart: (product: Product) => void;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({
-  product,
-  onAddToCart,
-}) => {
+export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const dispatch = useAppDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  };
+
   return (
     <Col>
       <Card className="h-100 shadow-sm border-0">
+        {/* Image Container */}
         <div
           className="p-3 d-flex align-items-center justify-content-center"
           style={{ height: "220px", backgroundColor: "#fff" }}
@@ -26,7 +32,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             style={{ maxHeight: "100%", objectFit: "contain" }}
           />
         </div>
-
+        {/* Card Content */}
         <Card.Body className="d-flex flex-column">
           <div className="d-flex justify-content-between align-items-start mb-2">
             <Badge bg="secondary" className="text-uppercase">
@@ -40,8 +46,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </div>
 
           <Card.Title
-            className="fs-6 fw-bold text-truncate"
+            className="fs-6 fw-bold mb-2"
             title={product.title}
+            style={{
+              display: "-webkit-box",
+              WebkitLineClamp: 2, // Limit to 2 lines
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              minHeight: "2.5rem", // Keeps card heights consistent
+            }}
           >
             {product.title}
           </Card.Title>
@@ -59,12 +72,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </Card.Text>
 
           <div className="mt-auto d-flex justify-content-between align-items-center pt-2">
-            <span className="fs-5 fw-bold">${product.price.toFixed(2)}</span>
-            <Button
-              variant="primary"
-              size="sm"
-              onClick={() => onAddToCart(product)}
-            >
+            <span className="fs-5 fw-bold">
+              {formatCurrency(product.price)}
+            </span>
+            <Button variant="primary" size="sm" onClick={handleAddToCart}>
               Add To Cart
             </Button>
           </div>

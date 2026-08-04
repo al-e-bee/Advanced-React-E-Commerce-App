@@ -4,6 +4,13 @@ import { useProducts, useCategories } from "../hooks/useProducts";
 import { ProductCard } from "./ProductCard";
 import { Row, Container, Form } from "react-bootstrap";
 
+const formatCategoryName = (category: string) => {
+  return category
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
+
 export const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
@@ -29,7 +36,7 @@ export const Home = () => {
         <option value="all">All Categories</option>
         {categories?.map((cat) => (
           <option key={cat} value={cat}>
-            {cat}
+            {formatCategoryName(cat)}
           </option>
         ))}
       </Form.Select>
@@ -37,11 +44,7 @@ export const Home = () => {
       {/* Product List */}
       <Row xs={1} md={2} lg={3} className="g-4">
         {products?.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            onAddToCart={(prod) => console.log("Added to cart:", prod)}
-          />
+          <ProductCard key={product.id} product={product} />
         ))}
       </Row>
     </Container>
