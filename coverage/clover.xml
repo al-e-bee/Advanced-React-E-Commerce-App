@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1785886065344" clover="3.2.0">
+  <project timestamp="1785886065344" name="All files">
+    <metrics statements="27" coveredstatements="25" conditionals="6" coveredconditionals="5" methods="9" coveredmethods="9" elements="42" coveredelements="39" complexity="0" loc="27" ncloc="27" packages="1" files="1" classes="1"/>
+    <file name="cartSlice.ts" path="C:\Users\aliso\Desktop\advanced-react-e-commerce-app\src\store\cartSlice.ts">
+      <metrics statements="27" coveredstatements="25" conditionals="6" coveredconditionals="5" methods="9" coveredmethods="9"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="19" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="21" count="0" type="stmt"/>
+      <line num="22" count="0" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="28" count="6" type="stmt"/>
+      <line num="29" count="6" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+      <line num="39" count="1" type="stmt"/>
+      <line num="44" count="3" type="stmt"/>
+      <line num="45" count="1" type="stmt"/>
+      <line num="48" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="49" count="1" type="stmt"/>
+      <line num="51" count="2" type="stmt"/>
+      <line num="53" count="3" type="stmt"/>
+      <line num="57" count="1" type="stmt"/>
+      <line num="58" count="1" type="stmt"/>
+      <line num="65" count="2" type="stmt"/>
+      <line num="66" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="67" count="1" type="stmt"/>
+      <line num="69" count="2" type="stmt"/>
+      <line num="73" count="1" type="stmt"/>
+      <line num="74" count="1" type="stmt"/>
+      <line num="80" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
