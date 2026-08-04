@@ -27,6 +27,9 @@ export const ShoppingCart: React.FC<ShoppingCartProps> = ({
   const dispatch = useAppDispatch();
   const items = useAppSelector((state) => state.cart.items);
 
+  // Calculate total items in cart
+  const totalItemCount = items.reduce((sum, item) => sum + item.count, 0);
+
   // Calculate cart subtotal
   const subtotal = items.reduce(
     (sum, item) => sum + item.price * item.count,
@@ -151,8 +154,12 @@ export const ShoppingCart: React.FC<ShoppingCartProps> = ({
             </ListGroup>
             {/* Cart Footer Summary */}
             <div className="pt-3 border-top mt-auto">
+              <div className="d-flex justify-content-between align-items-center mb-1">
+                <span className="text-muted">Total Items:</span>
+                <span className="fw-bold">{totalItemCount}</span>
+              </div>
               <div className="d-flex justify-content-between align-items-center mb-3 fs-5">
-                <span className="fw-bold">Total:</span>
+                <span className="fw-bold">Total Price:</span>
                 <span className="fw-bold text-dark">
                   {formatCurrency(subtotal)}
                 </span>
