@@ -1,32 +1,42 @@
-# React + TypeScript + Vite
+# Advanced React E-Commerce Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern, responsive e-commerce web application built with **React**, **TypeScript**, **Redux Toolkit**, and **React Query** (TanStack Query), fetching real-time data from the **FakeStoreAPI**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Key Features
 
-## React Compiler
+- **Dynamic Category Navigation:** Fetch and filter product listings dynamically by category using React Query.
+- **Global Shopping Cart State:** Fully managed via Redux Toolkit with persistent state synchronized to `sessionStorage`.
+- **Interactive Cart Drawer:** Sliding `<Offcanvas>` drawer displaying total items, itemized price calculations, quantity adjustments, and single-click item removals.
+- **Simulated Checkout Flow:** Accessible checkout modal that validates inputs, clears Redux state and `sessionStorage`, and provides visual order confirmation.
+- **Unit Testing & High Coverage:** Robust suite of unit tests written with Vitest and React Testing Library covering Redux reducers and edge cases.
+- **Responsive Styling:** Designed with **React-Bootstrap** for clean mobile and desktop layouts.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+## Tech Stack & Tools
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+- **Frontend Framework:** React (Vite)
+- **Language:** TypeScript
+- **State Management:** Redux Toolkit (`@reduxjs/toolkit`, `react-redux`)
+- **Data Fetching & Caching:** React Query (`@tanstack/react-query`)
+- **Styling & UI Components:** React-Bootstrap, Bootstrap 5
+- **Testing:** Vitest, React Testing Library, JSDOM
+- **API Integration:** [FakeStoreAPI](https://fakestoreapi.com/)
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+---
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Getting Started
+
+### Prerequisites
+
+Ensure you have [Node.js](https://nodejs.org/) (v18 or higher recommended) installed on your system.
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/al-e-bee/Advanced-React-E-Commerce-App.git](https://github.com/al-e-bee/Advanced-React-E-Commerce-App.git)
+   cd Advanced-React-E-Commerce-App
+   ```
