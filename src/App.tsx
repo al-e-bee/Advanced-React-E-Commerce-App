@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { Home } from "./components/Home";
-import { Container } from "react-bootstrap";
 import { Navbar } from "./components/Navbar";
 import { ShoppingCart } from "./components/ShoppingCart";
 import { CheckoutModal } from "./components/CheckoutModal";
+import Footer from "./components/Footer";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   return (
-    <Container>
+    <div className="d-flex flex-column min-vh-100">
       <Navbar onOpenCart={() => setIsCartOpen(true)} />
-      <Home />
+      <main className="flex-grow-1">
+        <Home />
+      </main>
       <ShoppingCart
         show={isCartOpen}
         onClose={() => setIsCartOpen(false)}
@@ -22,7 +24,8 @@ function App() {
         show={isCheckoutOpen}
         onClose={() => setIsCheckoutOpen(false)}
       />
-    </Container>
+      <Footer />
+    </div>
   );
 }
 
