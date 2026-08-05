@@ -22,7 +22,7 @@ export const Navbar: React.FC<NavigationProps> = ({ onOpenCart }) => {
   return (
     <BsNavbar bg="dark" variant="dark" expand="lg" className="mb-4 sticky-top">
       <Container>
-        <BsNavbar.Brand href="#">FakeStore App</BsNavbar.Brand>
+        <BsNavbar.Brand href="/">FakeStore App</BsNavbar.Brand>
         <Nav className="ms-auto">
           <Button
             variant="outline-light"
