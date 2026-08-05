@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Card, Button, Badge } from "react-bootstrap";
 import type { Product } from "../types/Product";
 import { ProductImage } from "./ProductImage";
@@ -14,8 +14,14 @@ interface ProductCardProps {
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const dispatch = useAppDispatch();
 
+  const [isAdded, setIsAdded] = useState(false);
+
   const handleAddToCart = () => {
     dispatch(addToCart(product));
+    setIsAdded(true);
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 1500);
   };
 
   return (
@@ -75,8 +81,28 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <span className="fs-5 fw-bold">
               {formatCurrency(product.price)}
             </span>
-            <Button variant="primary" size="sm" onClick={handleAddToCart}>
-              Add To Cart
+            <Button
+              variant={isAdded ? "success" : "primary"}
+              onClick={handleAddToCart}
+              disabled={isAdded}
+              className="align-self-center d-flex align-items-center justify-content-center gap-1 mt-auto"
+            >
+              {isAdded ? (
+                <>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                  </svg>
+                  Added!
+                </>
+              ) : (
+                "Add to Cart"
+              )}
             </Button>
           </div>
         </Card.Body>
